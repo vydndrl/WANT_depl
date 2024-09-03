@@ -26,7 +26,7 @@ export default {
         // 1. 인가 코드로 액세스 토큰 요청
         const tokenResponse = await axios.post('https://oauth2.googleapis.com/token', {
           code: authorizationCode,
-          redirect_uri: 'http://localhost:3000/oauth2/callback',
+          redirect_uri: process.env.VUE_APP_GOOGLE_REDIRECT_URI,
           client_id: process.env.VUE_APP_GOOGLE_CLIENT_ID,
           client_secret: process.env.VUE_APP_GOOGLE_CLIENT_SECRET,
           grant_type: 'authorization_code'
